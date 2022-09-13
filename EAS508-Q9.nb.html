@@ -1774,41 +1774,49 @@ pre code {
 missing values from the data.</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuQXV0byA8LSByZWFkLmNzdihcIkF1dG8uY3N2XCIpXG5BdXRvIDwtIG5hLm9taXQoQXV0bylcbnN1bW1hcnkoQXV0bylcbmBgYCJ9 -->
-<pre class="r"><code>Auto &lt;- read.csv(&quot;Auto.csv&quot;)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBMb2FkaW5nIGRhdGEgYW5kIHJlbW92aW5nIG1pc3NpbmcgdmFsdWVzLlxuXG5BdXRvIDwtIHJlYWQuY3N2KFwiQXV0by5jc3ZcIiwgaGVhZGVyID0gVFJVRSwgbmEuc3RyaW5ncyA9IFwiP1wiLCBzdHJpbmdzQXNGYWN0b3JzID0gVClcbkF1dG8gPC0gbmEub21pdChBdXRvKVxuZGltKEF1dG8pXG5gYGAifQ== -->
+<pre class="r"><code># Loading data and removing missing values.
+
+Auto &lt;- read.csv(&quot;Auto.csv&quot;, header = TRUE, na.strings = &quot;?&quot;, stringsAsFactors = T)
 Auto &lt;- na.omit(Auto)
-summary(Auto)</code></pre>
+dim(Auto)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgbXBnICAgICAgICAgIGN5bGluZGVycyAgICAgIGRpc3BsYWNlbWVudCAgICBob3JzZXBvd2VyICAgICAgICAgICAgd2VpZ2h0ICAgICAgYWNjZWxlcmF0aW9uICAgICAgICB5ZWFyICAgICAgXG4gTWluLiAgIDogOS4wMCAgIE1pbi4gICA6My4wMDAgICBNaW4uICAgOiA2OC4wICAgTGVuZ3RoOjM5NyAgICAgICAgIE1pbi4gICA6MTYxMyAgIE1pbi4gICA6IDguMDAgICBNaW4uICAgOjcwLjAwICBcbiAxc3QgUXUuOjE3LjUwICAgMXN0IFF1Ljo0LjAwMCAgIDFzdCBRdS46MTA0LjAgICBDbGFzcyA6Y2hhcmFjdGVyICAgMXN0IFF1LjoyMjIzICAgMXN0IFF1LjoxMy44MCAgIDFzdCBRdS46NzMuMDAgIFxuIE1lZGlhbiA6MjMuMDAgICBNZWRpYW4gOjQuMDAwICAgTWVkaWFuIDoxNDYuMCAgIE1vZGUgIDpjaGFyYWN0ZXIgICBNZWRpYW4gOjI4MDAgICBNZWRpYW4gOjE1LjUwICAgTWVkaWFuIDo3Ni4wMCAgXG4gTWVhbiAgIDoyMy41MiAgIE1lYW4gICA6NS40NTggICBNZWFuICAgOjE5My41ICAgICAgICAgICAgICAgICAgICAgIE1lYW4gICA6Mjk3MCAgIE1lYW4gICA6MTUuNTYgICBNZWFuICAgOjc1Ljk5ICBcbiAzcmQgUXUuOjI5LjAwICAgM3JkIFF1Ljo4LjAwMCAgIDNyZCBRdS46MjYyLjAgICAgICAgICAgICAgICAgICAgICAgM3JkIFF1LjozNjA5ICAgM3JkIFF1LjoxNy4xMCAgIDNyZCBRdS46NzkuMDAgIFxuIE1heC4gICA6NDYuNjAgICBNYXguICAgOjguMDAwICAgTWF4LiAgIDo0NTUuMCAgICAgICAgICAgICAgICAgICAgICBNYXguICAgOjUxNDAgICBNYXguICAgOjI0LjgwICAgTWF4LiAgIDo4Mi4wMCAgXG4gICAgIG9yaWdpbiAgICAgICAgICBuYW1lICAgICAgICAgIFxuIE1pbi4gICA6MS4wMDAgICBMZW5ndGg6Mzk3ICAgICAgICBcbiAxc3QgUXUuOjEuMDAwICAgQ2xhc3MgOmNoYXJhY3RlciAgXG4gTWVkaWFuIDoxLjAwMCAgIE1vZGUgIDpjaGFyYWN0ZXIgIFxuIE1lYW4gICA6MS41NzQgICAgICAgICAgICAgICAgICAgICBcbiAzcmQgUXUuOjIuMDAwICAgICAgICAgICAgICAgICAgICAgXG4gTWF4LiAgIDozLjAwMCAgICAgICAgICAgICAgICAgICAgIFxuIn0= -->
-<pre><code>      mpg          cylinders      displacement    horsepower            weight      acceleration        year      
- Min.   : 9.00   Min.   :3.000   Min.   : 68.0   Length:397         Min.   :1613   Min.   : 8.00   Min.   :70.00  
- 1st Qu.:17.50   1st Qu.:4.000   1st Qu.:104.0   Class :character   1st Qu.:2223   1st Qu.:13.80   1st Qu.:73.00  
- Median :23.00   Median :4.000   Median :146.0   Mode  :character   Median :2800   Median :15.50   Median :76.00  
- Mean   :23.52   Mean   :5.458   Mean   :193.5                      Mean   :2970   Mean   :15.56   Mean   :75.99  
- 3rd Qu.:29.00   3rd Qu.:8.000   3rd Qu.:262.0                      3rd Qu.:3609   3rd Qu.:17.10   3rd Qu.:79.00  
- Max.   :46.60   Max.   :8.000   Max.   :455.0                      Max.   :5140   Max.   :24.80   Max.   :82.00  
-     origin          name          
- Min.   :1.000   Length:397        
- 1st Qu.:1.000   Class :character  
- Median :1.000   Mode  :character  
- Mean   :1.574                     
- 3rd Qu.:2.000                     
- Max.   :3.000                     </code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDM5MiAgIDlcbiJ9 -->
+<pre><code>[1] 392   9</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
-<p>Add a new chunk by clicking the <em>Insert Chunk</em> button on the
-toolbar or by pressing <em>Ctrl+Alt+I</em>.</p>
-<p>When you save the notebook, an HTML file containing the code and
-output will be saved alongside it (click the <em>Preview</em> button or
-press <em>Ctrl+Shift+K</em> to preview the HTML file).</p>
-<p>The preview shows you a rendered HTML copy of the contents of the
-editor. Consequently, unlike <em>Knit</em>, <em>Preview</em> does not
-run any R code chunks. Instead, the output of the chunk when it was last
-run in the editor is displayed.</p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBTdW1tYXJ5IG9mIGRhdGFcblxuZ2xpbXBzZShBdXRvKVxuYGBgIn0= -->
+<pre class="r"><code># Summary of data
+
+glimpse(Auto)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiUm93czogMzkyXG5Db2x1bW5zOiA5XG4kIG1wZyAgICAgICAgICA8ZGJsPiAxOCwgMTUsIDE4LCAxNiwgMTcsIDE1LCAxNCwgMTQsIDE0LCAxNSwgMTUsIDE0LCAxNSwgMTQsIDI0LCAyMiwgMTgsIDIxLCAyNy4uLlxuJCBjeWxpbmRlcnMgICAgPGludD4gOCwgOCwgOCwgOCwgOCwgOCwgOCwgOCwgOCwgOCwgOCwgOCwgOCwgOCwgNCwgNiwgNiwgNiwgNCwgNCwgNCwgNCwgNCwgNCwgNiwuLi5cbiQgZGlzcGxhY2VtZW50IDxkYmw+IDMwNywgMzUwLCAzMTgsIDMwNCwgMzAyLCA0MjksIDQ1NCwgNDQwLCA0NTUsIDM5MCwgMzgzLCAzNDAsIDQwMCwgNDU1LCAxMTMsLi4uXG4kIGhvcnNlcG93ZXIgICA8aW50PiAxMzAsIDE2NSwgMTUwLCAxNTAsIDE0MCwgMTk4LCAyMjAsIDIxNSwgMjI1LCAxOTAsIDE3MCwgMTYwLCAxNTAsIDIyNSwgOTUsIC4uLlxuJCB3ZWlnaHQgICAgICAgPGludD4gMzUwNCwgMzY5MywgMzQzNiwgMzQzMywgMzQ0OSwgNDM0MSwgNDM1NCwgNDMxMiwgNDQyNSwgMzg1MCwgMzU2MywgMzYwOSwgMzcuLi5cbiQgYWNjZWxlcmF0aW9uIDxkYmw+IDEyLjAsIDExLjUsIDExLjAsIDEyLjAsIDEwLjUsIDEwLjAsIDkuMCwgOC41LCAxMC4wLCA4LjUsIDEwLjAsIDguMCwgOS41LCAxLi4uXG4kIHllYXIgICAgICAgICA8aW50PiA3MCwgNzAsIDcwLCA3MCwgNzAsIDcwLCA3MCwgNzAsIDcwLCA3MCwgNzAsIDcwLCA3MCwgNzAsIDcwLCA3MCwgNzAsIDcwLCA3MC4uLlxuJCBvcmlnaW4gICAgICAgPGludD4gMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMSwgMywgMSwgMSwgMSwgMywgMiwgMiwgMiwgMiwgMiwgMSwuLi5cbiQgbmFtZSAgICAgICAgIDxmY3Q+IGNoZXZyb2xldCBjaGV2ZWxsZSBtYWxpYnUsIGJ1aWNrIHNreWxhcmsgMzIwLCBwbHltb3V0aCBzYXRlbGxpdGUsIGFtYyByZWJlLi4uXG4ifQ== -->
+<pre><code>Rows: 392
+Columns: 9
+$ mpg          &lt;dbl&gt; 18, 15, 18, 16, 17, 15, 14, 14, 14, 15, 15, 14, 15, 14, 24, 22, 18, 21, 27...
+$ cylinders    &lt;int&gt; 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 4, 6, 6, 6, 4, 4, 4, 4, 4, 4, 6,...
+$ displacement &lt;dbl&gt; 307, 350, 318, 304, 302, 429, 454, 440, 455, 390, 383, 340, 400, 455, 113,...
+$ horsepower   &lt;int&gt; 130, 165, 150, 150, 140, 198, 220, 215, 225, 190, 170, 160, 150, 225, 95, ...
+$ weight       &lt;int&gt; 3504, 3693, 3436, 3433, 3449, 4341, 4354, 4312, 4425, 3850, 3563, 3609, 37...
+$ acceleration &lt;dbl&gt; 12.0, 11.5, 11.0, 12.0, 10.5, 10.0, 9.0, 8.5, 10.0, 8.5, 10.0, 8.0, 9.5, 1...
+$ year         &lt;int&gt; 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70, 70...
+$ origin       &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 3, 2, 2, 2, 2, 2, 1,...
+$ name         &lt;fct&gt; chevrolet chevelle malibu, buick skylark 320, plymouth satellite, amc rebe...</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div class="line-block">a. Which of the predictors are quantitative, and
+which are qualitative?</div>
+<p><br> mpg, cylinders, displacement, horsepower, weight, accelaration,
+year are quantitative predictors.</p>
+<pre><code>name, origin are qualitative predictors. </code></pre>
+<p><br></p>
 <!-- rnb-text-end -->
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVBUzUwOC1ROSINCkF1dGhvcjogU2Fpc2ggTWFuZGF2a2FyDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpRdWVzdGlvbiA5DQoNClRoaXMgZXhlcmNpc2UgaW52b2x2ZXMgdGhlIGBBdXRvYCBkYXRhIHNldCBhdmFpbGFibGUgYXMgYEF1dG8uY3N2YCBhdmFpbGFibGUgb24gdGhlIHRleHRib29rIHdlYnNpdGUuIFJlbW92ZSB0aGUgbWlzc2luZyB2YWx1ZXMgZnJvbSB0aGUgZGF0YS4NCg0KYGBge3J9DQpBdXRvIDwtIHJlYWQuY3N2KCJBdXRvLmNzdiIpDQpBdXRvIDwtIG5hLm9taXQoQXV0bykNCnN1bW1hcnkoQXV0bykNCmBgYA0KDQpBZGQgYSBuZXcgY2h1bmsgYnkgY2xpY2tpbmcgdGhlICpJbnNlcnQgQ2h1bmsqIGJ1dHRvbiBvbiB0aGUgdG9vbGJhciBvciBieSBwcmVzc2luZyAqQ3RybCtBbHQrSSouDQoNCldoZW4geW91IHNhdmUgdGhlIG5vdGVib29rLCBhbiBIVE1MIGZpbGUgY29udGFpbmluZyB0aGUgY29kZSBhbmQgb3V0cHV0IHdpbGwgYmUgc2F2ZWQgYWxvbmdzaWRlIGl0IChjbGljayB0aGUgKlByZXZpZXcqIGJ1dHRvbiBvciBwcmVzcyAqQ3RybCtTaGlmdCtLKiB0byBwcmV2aWV3IHRoZSBIVE1MIGZpbGUpLg0KDQpUaGUgcHJldmlldyBzaG93cyB5b3UgYSByZW5kZXJlZCBIVE1MIGNvcHkgb2YgdGhlIGNvbnRlbnRzIG9mIHRoZSBlZGl0b3IuIENvbnNlcXVlbnRseSwgdW5saWtlICpLbml0KiwgKlByZXZpZXcqIGRvZXMgbm90IHJ1biBhbnkgUiBjb2RlIGNodW5rcy4gSW5zdGVhZCwgdGhlIG91dHB1dCBvZiB0aGUgY2h1bmsgd2hlbiBpdCB3YXMgbGFzdCBydW4gaW4gdGhlIGVkaXRvciBpcyBkaXNwbGF5ZWQuDQo=</div>
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVBUzUwOC1ROSINCkF1dGhvcjogU2Fpc2ggTWFuZGF2a2FyDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpRdWVzdGlvbiA5DQoNClRoaXMgZXhlcmNpc2UgaW52b2x2ZXMgdGhlIGBBdXRvYCBkYXRhIHNldCBhdmFpbGFibGUgYXMgYEF1dG8uY3N2YCBhdmFpbGFibGUgb24gdGhlIHRleHRib29rIHdlYnNpdGUuIFJlbW92ZSB0aGUgbWlzc2luZyB2YWx1ZXMgZnJvbSB0aGUgZGF0YS4NCg0KYGBge3J9DQojIExvYWRpbmcgZGF0YSBhbmQgcmVtb3ZpbmcgbWlzc2luZyB2YWx1ZXMuDQoNCkF1dG8gPC0gcmVhZC5jc3YoIkF1dG8uY3N2IiwgaGVhZGVyID0gVFJVRSwgbmEuc3RyaW5ncyA9ICI/Iiwgc3RyaW5nc0FzRmFjdG9ycyA9IFQpDQpBdXRvIDwtIG5hLm9taXQoQXV0bykNCmRpbShBdXRvKQ0KYGBgDQoNCmBgYHtyfQ0KIyBHbGltcHNlIG9mIGRhdGEgdXNpbmcgZHBseXIuDQoNCmdsaW1wc2UoQXV0bykNCmBgYA0KDQp8IGEuIFdoaWNoIG9mIHRoZSBwcmVkaWN0b3JzIGFyZSBxdWFudGl0YXRpdmUsIGFuZCB3aGljaCBhcmUgcXVhbGl0YXRpdmU/DQoNCjxicj4NCiAgICBtcGcsIGN5bGluZGVycywgZGlzcGxhY2VtZW50LCBob3JzZXBvd2VyLCB3ZWlnaHQsIGFjY2VsYXJhdGlvbiwgeWVhciBhcmUgcXVhbnRpdGF0aXZlIHByZWRpY3RvcnMuDQoNCiAgICBuYW1lLCBvcmlnaW4gYXJlIHF1YWxpdGF0aXZlIHByZWRpY3RvcnMuIA0KDQo8YnI+DQoNCg0K</div>
 
 
 
