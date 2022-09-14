@@ -63,8 +63,25 @@ sapply(Auto[, quantitative_predictors], mean)
 ```
 
 ```{r}
-# FInd the standard deviation for all quantitative predictors using sd function.
+# Find the standard deviation for all quantitative predictors using sd function.
 
 sapply(Auto[, quantitative_predictors], sd)
+```
+<br> 
+
+d. Now remove the 10th through 85th observations. What is the range, mean, and standard deviation of each predictor in the subset of the data that remains?
+
+<br>
+
+```{r}
+#Mean after removing 10-85th observations
+
+sapply(Auto[-seq(10, 85), quantitative_predictors], mean)
+```
+```{r}
+#Standard deviation after removing 10-85th observations
+
+sapply(Auto[-seq(10, 85), quantitative_predictors], sd)
+```
 ```
 
