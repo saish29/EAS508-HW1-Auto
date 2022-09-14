@@ -1810,13 +1810,75 @@ $ name         &lt;fct&gt; chevrolet chevelle malibu, buick skylark 320, plymout
 <!-- rnb-text-begin -->
 <div class="line-block">a. Which of the predictors are quantitative, and
 which are qualitative?</div>
-<p><br> mpg, cylinders, displacement, horsepower, weight, accelaration,
-year are quantitative predictors.</p>
-<pre><code>name, origin are qualitative predictors. </code></pre>
+<p><br></p>
+<pre><code>mpg, cylinders, displacement, horsepower, weight, accelaration, year are quantitative predictors.
+
+name, origin are qualitative predictors. </code></pre>
+<p><br></p>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>What is the <em>range</em> of each quantitative predictor?</li>
+</ol>
 <p><br></p>
 <!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuI0dyb3VwaW5nIHRvZ2V0aGVyIGFsbCB0aGUgcXVhbnRpdGF0aXZlIHByZWRpY3RvcnNcbnF1YW50aXRhdGl2ZV9wcmVkaWN0b3JzIDwtIHdoaWNoKG5hbWVzKEF1dG8pICVpbiVcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgYyhcIm1wZ1wiLFwiY3lsaW5kZXJzXCIsXCJkaXNwbGFjZW1lbnRcIixcImhvcnNlcG93ZXJcIiwgXCJ3ZWlnaHRcIixcImFjY2VsZXJhdGlvblwiLFwieWVhclwiKSlcbiAgICAgIFxucXVhbnRpdGF0aXZlX3ByZWRpY3RvcnNcbmBgYCJ9 -->
+<pre class="r"><code>#Grouping together all the quantitative predictors
+quantitative_predictors &lt;- which(names(Auto) %in%
+                                   c(&quot;mpg&quot;,&quot;cylinders&quot;,&quot;displacement&quot;,&quot;horsepower&quot;, &quot;weight&quot;,&quot;acceleration&quot;,&quot;year&quot;))
+      
+quantitative_predictors</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiWzFdIDEgMiAzIDQgNSA2IDdcbiJ9 -->
+<pre><code>[1] 1 2 3 4 5 6 7</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><br></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FwcGx5KEF1dG9bLCBxdWFudGl0YXRpdmVfcHJlZGljdG9yc10sIHJhbmdlKVxuYGBgIn0= -->
+<pre class="r"><code>sapply(Auto[, quantitative_predictors], range)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgbXBnIGN5bGluZGVycyBkaXNwbGFjZW1lbnQgaG9yc2Vwb3dlciB3ZWlnaHQgYWNjZWxlcmF0aW9uIHllYXJcblsxLF0gIDkuMCAgICAgICAgIDMgICAgICAgICAgIDY4ICAgICAgICAgNDYgICAxNjEzICAgICAgICAgIDguMCAgIDcwXG5bMixdIDQ2LjYgICAgICAgICA4ICAgICAgICAgIDQ1NSAgICAgICAgMjMwICAgNTE0MCAgICAgICAgIDI0LjggICA4MlxuIn0= -->
+<pre><code>      mpg cylinders displacement horsepower weight acceleration year
+[1,]  9.0         3           68         46   1613          8.0   70
+[2,] 46.6         8          455        230   5140         24.8   82</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<p><br></p>
+<ol start="3" style="list-style-type: lower-alpha">
+<li>What is the mean and standard deviation of each quantitative
+predictor?</li>
+</ol>
+<p><br></p>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuc2FwcGx5KEF1dG9bLCBxdWFudGl0YXRpdmVfcHJlZGljdG9yc10sIG1lYW4pXG5gYGAifQ== -->
+<pre class="r"><code>sapply(Auto[, quantitative_predictors], mean)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgbXBnICAgIGN5bGluZGVycyBkaXNwbGFjZW1lbnQgICBob3JzZXBvd2VyICAgICAgIHdlaWdodCBhY2NlbGVyYXRpb24gICAgICAgICB5ZWFyIFxuICAgMjMuNDQ1OTE4ICAgICA1LjQ3MTkzOSAgIDE5NC40MTE5OTAgICAxMDQuNDY5Mzg4ICAyOTc3LjU4NDE4NCAgICAxNS41NDEzMjcgICAgNzUuOTc5NTkyIFxuIn0= -->
+<pre><code>         mpg    cylinders displacement   horsepower       weight acceleration         year 
+   23.445918     5.471939   194.411990   104.469388  2977.584184    15.541327    75.979592 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBGSW5kIHRoZSBzdGFuZGFyZCBkZXZpYXRpb24gZm9yIGFsbCBxdWFudGl0YXRpdmUgcHJlZGljdG9ycyB1c2luZyBzZCBmdW5jdGlvbi5cblxuc2FwcGx5KEF1dG9bLCBxdWFudGl0YXRpdmVfcHJlZGljdG9yc10sIHNkKVxuYGBgIn0= -->
+<pre class="r"><code># FInd the standard deviation for all quantitative predictors using sd function.
 
-<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVBUzUwOC1ROSINCkF1dGhvcjogU2Fpc2ggTWFuZGF2a2FyDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpRdWVzdGlvbiA5DQoNClRoaXMgZXhlcmNpc2UgaW52b2x2ZXMgdGhlIGBBdXRvYCBkYXRhIHNldCBhdmFpbGFibGUgYXMgYEF1dG8uY3N2YCBhdmFpbGFibGUgb24gdGhlIHRleHRib29rIHdlYnNpdGUuIFJlbW92ZSB0aGUgbWlzc2luZyB2YWx1ZXMgZnJvbSB0aGUgZGF0YS4NCg0KYGBge3J9DQojIExvYWRpbmcgZGF0YSBhbmQgcmVtb3ZpbmcgbWlzc2luZyB2YWx1ZXMuDQoNCkF1dG8gPC0gcmVhZC5jc3YoIkF1dG8uY3N2IiwgaGVhZGVyID0gVFJVRSwgbmEuc3RyaW5ncyA9ICI/Iiwgc3RyaW5nc0FzRmFjdG9ycyA9IFQpDQpBdXRvIDwtIG5hLm9taXQoQXV0bykNCmRpbShBdXRvKQ0KYGBgDQoNCmBgYHtyfQ0KIyBHbGltcHNlIG9mIGRhdGEgdXNpbmcgZHBseXIuDQoNCmdsaW1wc2UoQXV0bykNCmBgYA0KDQp8IGEuIFdoaWNoIG9mIHRoZSBwcmVkaWN0b3JzIGFyZSBxdWFudGl0YXRpdmUsIGFuZCB3aGljaCBhcmUgcXVhbGl0YXRpdmU/DQoNCjxicj4NCiAgICBtcGcsIGN5bGluZGVycywgZGlzcGxhY2VtZW50LCBob3JzZXBvd2VyLCB3ZWlnaHQsIGFjY2VsYXJhdGlvbiwgeWVhciBhcmUgcXVhbnRpdGF0aXZlIHByZWRpY3RvcnMuDQoNCiAgICBuYW1lLCBvcmlnaW4gYXJlIHF1YWxpdGF0aXZlIHByZWRpY3RvcnMuIA0KDQo8YnI+DQoNCg0K</div>
+sapply(Auto[, quantitative_predictors], sd)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiICAgICAgICAgbXBnICAgIGN5bGluZGVycyBkaXNwbGFjZW1lbnQgICBob3JzZXBvd2VyICAgICAgIHdlaWdodCBhY2NlbGVyYXRpb24gICAgICAgICB5ZWFyIFxuICAgIDcuODA1MDA3ICAgICAxLjcwNTc4MyAgIDEwNC42NDQwMDQgICAgMzguNDkxMTYwICAgODQ5LjQwMjU2MCAgICAgMi43NTg4NjQgICAgIDMuNjgzNzM3IFxuIn0= -->
+<pre><code>         mpg    cylinders displacement   horsepower       weight acceleration         year 
+    7.805007     1.705783   104.644004    38.491160   849.402560     2.758864     3.683737 </code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<!-- rnb-text-end -->
+
+<div id="rmd-source-code">LS0tDQp0aXRsZTogIkVBUzUwOC1ROSINCkF1dGhvcjogU2Fpc2ggTWFuZGF2a2FyDQpvdXRwdXQ6IGh0bWxfbm90ZWJvb2sNCi0tLQ0KDQpRdWVzdGlvbiA5DQoNClRoaXMgZXhlcmNpc2UgaW52b2x2ZXMgdGhlIGBBdXRvYCBkYXRhIHNldCBhdmFpbGFibGUgYXMgYEF1dG8uY3N2YCBhdmFpbGFibGUgb24gdGhlIHRleHRib29rIHdlYnNpdGUuIFJlbW92ZSB0aGUgbWlzc2luZyB2YWx1ZXMgZnJvbSB0aGUgZGF0YS4NCg0KYGBge3J9DQojIExvYWRpbmcgZGF0YSBhbmQgcmVtb3ZpbmcgbWlzc2luZyB2YWx1ZXMuDQoNCkF1dG8gPC0gcmVhZC5jc3YoIkF1dG8uY3N2IiwgaGVhZGVyID0gVFJVRSwgbmEuc3RyaW5ncyA9ICI/Iiwgc3RyaW5nc0FzRmFjdG9ycyA9IFQpDQpBdXRvIDwtIG5hLm9taXQoQXV0bykNCmRpbShBdXRvKQ0KYGBgDQoNCmBgYHtyfQ0KIyBHbGltcHNlIG9mIGRhdGEgdXNpbmcgZHBseXIuDQoNCmdsaW1wc2UoQXV0bykNCmBgYA0KDQp8IGEuIFdoaWNoIG9mIHRoZSBwcmVkaWN0b3JzIGFyZSBxdWFudGl0YXRpdmUsIGFuZCB3aGljaCBhcmUgcXVhbGl0YXRpdmU/DQoNCjxicj4NCg0KICAgIG1wZywgY3lsaW5kZXJzLCBkaXNwbGFjZW1lbnQsIGhvcnNlcG93ZXIsIHdlaWdodCwgYWNjZWxhcmF0aW9uLCB5ZWFyIGFyZSBxdWFudGl0YXRpdmUgcHJlZGljdG9ycy4NCg0KICAgIG5hbWUsIG9yaWdpbiBhcmUgcXVhbGl0YXRpdmUgcHJlZGljdG9ycy4gDQoNCjxicj4NCg0KYi4gV2hhdCBpcyB0aGUgKnJhbmdlKiBvZiBlYWNoIHF1YW50aXRhdGl2ZSBwcmVkaWN0b3I/DQoNCjxicj4NCg0KYGBge3J9DQojR3JvdXBpbmcgdG9nZXRoZXIgYWxsIHRoZSBxdWFudGl0YXRpdmUgcHJlZGljdG9ycw0KcXVhbnRpdGF0aXZlX3ByZWRpY3RvcnMgPC0gd2hpY2gobmFtZXMoQXV0bykgJWluJQ0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjKCJtcGciLCJjeWxpbmRlcnMiLCJkaXNwbGFjZW1lbnQiLCJob3JzZXBvd2VyIiwgIndlaWdodCIsImFjY2VsZXJhdGlvbiIsInllYXIiKSkNCiAgICAgIA0KcXVhbnRpdGF0aXZlX3ByZWRpY3RvcnMNCmBgYA0KPGJyPg0KDQpgYGB7cn0NCiMgRmluZCB0aGUgcmFuZ2UgZm9yIGFsbCB1c2luZyBzYXBwbHkgYW5kIHJhbmdlIGZ1bmN0aW9uLg0KDQpzYXBwbHkoQXV0b1ssIHF1YW50aXRhdGl2ZV9wcmVkaWN0b3JzXSwgcmFuZ2UpDQpgYGANCjxicj4NCg0KYy4gV2hhdCBpcyB0aGUgbWVhbiBhbmQgc3RhbmRhcmQgZGV2aWF0aW9uIG9mIGVhY2ggcXVhbnRpdGF0aXZlIHByZWRpY3Rvcj8gDQoNCjxicj4NCg0KYGBge3J9DQojIEZJbmQgdGhlIG1lYW4gZm9yIGFsbCBxdWFudGl0YXRpdmUgcHJlZGljdG9ycyB1c2luZyBtZWFuIGZ1bmN0aW9uLg0KDQpzYXBwbHkoQXV0b1ssIHF1YW50aXRhdGl2ZV9wcmVkaWN0b3JzXSwgbWVhbikNCmBgYA0KDQpgYGB7cn0NCiMgRkluZCB0aGUgc3RhbmRhcmQgZGV2aWF0aW9uIGZvciBhbGwgcXVhbnRpdGF0aXZlIHByZWRpY3RvcnMgdXNpbmcgc2QgZnVuY3Rpb24uDQoNCnNhcHBseShBdXRvWywgcXVhbnRpdGF0aXZlX3ByZWRpY3RvcnNdLCBzZCkNCmBgYA0KDQo=</div>
 
 
 

@@ -25,10 +25,46 @@ glimpse(Auto)
 | a. Which of the predictors are quantitative, and which are qualitative?
 
 <br>
+
     mpg, cylinders, displacement, horsepower, weight, accelaration, year are quantitative predictors.
 
     name, origin are qualitative predictors. 
 
 <br>
 
+b. What is the *range* of each quantitative predictor?
+
+<br>
+
+```{r}
+#Grouping together all the quantitative predictors
+quantitative_predictors <- which(names(Auto) %in%
+                                   c("mpg","cylinders","displacement","horsepower", "weight","acceleration","year"))
+      
+quantitative_predictors
+```
+<br>
+
+```{r}
+# Find the range for all using sapply and range function.
+
+sapply(Auto[, quantitative_predictors], range)
+```
+<br>
+
+c. What is the mean and standard deviation of each quantitative predictor? 
+
+<br>
+
+```{r}
+# FInd the mean for all quantitative predictors using mean function.
+
+sapply(Auto[, quantitative_predictors], mean)
+```
+
+```{r}
+# FInd the standard deviation for all quantitative predictors using sd function.
+
+sapply(Auto[, quantitative_predictors], sd)
+```
 
