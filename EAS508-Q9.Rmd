@@ -137,8 +137,8 @@ hist(Auto$mpg,col=3, main = "Distribution of MPG", xlab = "MPG")
 
 f\. Suppose that we wish to predict gas mileage (`mpg`) on the basis of the other variables. Do your plots suggest that any of the other variables might be useful in predicting `mpg`? Justify your answer.
 
-| Yes there are predictors who hold a relation with the mpg outcome, both positive and negative. 
+| **Yes there are predictors who hold a relation with the mpg outcome, both positive and negative.**
 | 
-| Example of negative relationship is Weight vs MPG, the heavier the car gets, the lower is the MPG of that car. Also, horsepower holds a negative relation with the mpg outcome, more the horsepower, less is the MPG of the car.
+| **Example of negative relationship is Weight vs MPG, the heavier the car gets, the lower is the MPG of that car. Also, horsepower holds a negative relation with the mpg outcome, more the horsepower, less is the MPG of the car.**
 | 
-| Example of a positive relationship is year vs MPG, as the time passes i.e. as the year increases, MPG tends to decrease. 
+| **Example of a positive relationship is year vs MPG, as the time passes i.e. as the year increases, MPG tends to decrease.**
