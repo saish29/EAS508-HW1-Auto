@@ -17,9 +17,9 @@ dim(Auto)
 ```
 
 ```{r}
-# Glimpse of data using dplyr.
+# Head of data
 
-glimpse(Auto)
+head(Auto)
 ```
 
 | a. Which of the predictors are quantitative, and which are qualitative?
@@ -32,7 +32,7 @@ glimpse(Auto)
 
 <br>
 
-b. What is the *range* of each quantitative predictor?
+b.  What is the *range* of each quantitative predictor?
 
 <br>
 
@@ -43,6 +43,7 @@ quantitative_predictors <- which(names(Auto) %in%
       
 quantitative_predictors
 ```
+
 <br>
 
 ```{r}
@@ -50,9 +51,10 @@ quantitative_predictors
 
 sapply(Auto[, quantitative_predictors], range)
 ```
+
 <br>
 
-c. What is the mean and standard deviation of each quantitative predictor? 
+c.  What is the mean and standard deviation of each quantitative predictor?
 
 <br>
 
@@ -67,9 +69,10 @@ sapply(Auto[, quantitative_predictors], mean)
 
 sapply(Auto[, quantitative_predictors], sd)
 ```
-<br> 
 
-d. Now remove the 10th through 85th observations. What is the range, mean, and standard deviation of each predictor in the subset of the data that remains?
+<br>
+
+d.  Now remove the 10th through 85th observations. What is the range, mean, and standard deviation of each predictor in the subset of the data that remains?
 
 <br>
 
@@ -78,10 +81,58 @@ d. Now remove the 10th through 85th observations. What is the range, mean, and s
 
 sapply(Auto[-seq(10, 85), quantitative_predictors], mean)
 ```
+
 ```{r}
 #Standard deviation after removing 10-85th observations
 
 sapply(Auto[-seq(10, 85), quantitative_predictors], sd)
 ```
+
+<br>
+
+e.  Using the full data set, investigate the predictors graphically, using scatterplots or other tools of your choice. Create some plots highlighting the relationships among the predictors. Comment on your findings.
+
+<br>
+
+```{r}
+# Scatter plot matrix for all the quantitative predictors.
+
+pairs(Auto[ , quantitative_predictors])
 ```
 
+```{r}
+# Relation between cylinders and horsepower
+
+plot(Auto$horsepower~Auto$cylinders, col = 2, main = "Horsepower vs Cylinders", xlab = "Cylinders", ylab = "Horsepower")
+```
+
+| **Cars with 8 cylinders have higher horsepower.**
+
+```{r}
+# Relation between mpg and horsepower
+
+plot(Auto$horsepower~Auto$mpg, col = 6, main = "Horsepower vs MPG", xlab = "MPG", ylab = "Horsepower")
+
+```
+
+| **Cars with lower MPG have higher horsepower.**
+
+```{r}
+# Relation between MPG and weight.
+
+plot(Auto$mpg~Auto$weight, col = 5, xlab = "Weight", ylab = "MPG", main = "Weight vs MPG")
+```
+
+| **Cars with higher weight have lower MPG.**
+
+```{r}
+plot(Auto$mpg, Auto$year, col = "blue2", xlab = "MPG", ylab = "Launch Year")
+```
+
+| **Cars are getting efficient over time.**
+
+```{r}
+hist(Auto$mpg,col=3, main = "Distribution of MPG", xlab = "MPG")
+```
+
+f\. Suppose that we wish to predict gas mileage (`mpg`) on the basis of the other variables. Do your plots suggest that any of the other variables might be useful in predicting `mpg`? Justify your answer.
